@@ -1,36 +1,21 @@
+install.packages("shiny")
+install.packages('dplyr')
+install.packages('shinydashboard')
 library(shiny)
-shunyui<-fluidPage(
+library(shinydashboard)
+shinyui->fluidPage(
+  theme = "bootstrap.css",
   
-  # App title ----
-  titlePanel("Shiny Text"),
+  titlePanel('This is my first RShiny app!'),
   
-    # Sidebar layout with a input and output definitions ----
-  sidebarLayout(
+  sidebarLayout( 
     
-    # Sidebar panel for inputs ----
-    sidebarPanel(
-      
-      # Input: Selector for choosing dataset ----
-      selectInput(inputId = "dataset",
-                  label = "Choose a dataset:",
-                  choices = c("rock", "pressure", "cars")),
-      
-      # Input: Numeric entry for number of obs to view ----
-      numericInput(inputId = "obs",
-                   label = "Number of observations to view:",
-                   value = 10)
-    ),
-    
-    # Main panel for displaying outputs ----
     mainPanel(
       
-      # Output: Verbatim text for data summary ----
-      verbatimTextOutput("summary"),
-      
-      # Output: HTML table with requested number of observations ----
-      tableOutput("view")
-      
-    )
+      img(src='shiny.png', align = "left", height = 100)
+    ),
+    
+    sidebarPanel('I love Shiny!')
   )
 )
 
